@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% load static %}
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>JDM PROJECTS</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="{% static 'AppCoder/assets/favicon.ico' %}" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{% static 'AppCoder/css/styles.css' %}" rel="stylesheet" />
+    </head>
+    <body id="page-top" style="background-color:#201164">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav" style="background-color:#201164">
+            <div class="container">
+                <a class="navbar-brand"><img src="{% static 'AppCoder/assets/img/jpnflag.png' %}" alt="..." /></a>
+                {% with user.avatar_set.first as miAvatar %}
+                {% if miAvatar %}
+                <img src="{{miAvatar.imagen.url}}" alt="No tiene avatar" style="max-width: 60px ;">
+                {% endif %}
+                {% endwith %}
+                <p style="color:#fff">{{user.first_name}} <br> {{user.last_name}}</p>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                </div>
+            </div>
+        </nav>
+        <!-- Cuerpo-->
+       <section class="page-section bg-light" id="team">
+            <div class="container">
+                <div class="text-center">
+                <br>
+                    <h2 class="section-heading text-uppercase">Términos de uso</h2>
+                    <h3 class="section-subheading text-muted">No borres o actualizes modelos jdm, motores jdm o actividades que no hayas agregado vos mismo y hayas notado un error después de agregarlos.</h3>
+                    <h3 class="section-subheading text-muted">Si notas algún modelo, motor o actividad que no exista en la cultura jdm, puedes borrarla.</h3>
+                    <h3 class="section-subheading text-muted">No agregues fotos violentas o con contenido sexual en ningún apartado de la página, no estamos aquí para eso.</h3>
+                    <h3 class="section-subheading text-muted">Disfruta de esta página que la hice con muchas ganas y buenas intenciones, gracias por visitarme :)</h3>
+                    <a class="btn btn-primary btn-xl text-uppercase" href="{% url 'Inicio' %}">Acepto</a>
+                </div>
+            </div>
+        </section>

@@ -1,0 +1,238 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% load static %}
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>JDM PROJECTS</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="{% static 'AppCoder/assets/favicon.ico' %}" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{% static 'AppCoder/css/styles.css' %}" rel="stylesheet" />
+    </head>
+    <body id="page-top">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav" style="background-color:#201164">
+            <div class="container">
+                <a class="navbar-brand"><img src="{% static 'AppCoder/assets/img/jpnflag.png' %}" alt="..." /></a>
+                {% with user.avatar_set.first as miAvatar %}
+                {% if miAvatar %}
+                <img src="{{miAvatar.imagen.url}}" alt="No tiene avatar" style="max-width: 60px ;">
+                {% endif %}
+                {% endwith %}
+                <p style="color:#fff">{{user.first_name}} <br> {{user.last_name}}</p>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menú
+                    <i class="fas fa-bars ms-1"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+                        <li class="nav-item"><a class="nav-link" href="{% url 'JDM' %}">¿JDM?</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'Modelos' %}">Modelos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'Motores' %}">Motores</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'Actividades' %}">Actividades</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'Sobre mi' %}">Acerca de mi</a></li>
+                        <li class="nav-item"><a class="nav-link">Profe Coder ☰</a>
+                            <ul class="submenu">
+                                <li class="nav-item"><a class="nav-link" href="{% url 'CrudCompleto' %}">Crud completo</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item"><a class="nav-link">Usuario ☰</a>
+                            <ul class="submenu">
+                                <li class="nav-item"><a class="nav-link" href="{% url 'Login' %}">Iniciar sesión</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{% url 'EditUser' %}">Editar usuario</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{% url 'Avatar' %}">Agregar avatar</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{% url 'Register' %}">Registrarse</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{% url 'Logout' %}">Cerrar sesión</a></li>                             
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Masthead <button id="nested1" type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><a  class="nav-item" class="nav-link">USUARIO</a></button>-->
+        <header class="masthead">
+            <div class="container">
+                <div style="color:#000" class="masthead-subheading">Bienvenido {{mensaje}} a...</div>
+                <div style="color:#B30C0C" class="masthead-heading text-uppercase">JDM PROJECTS</div>
+                <a class="btn btn-primary btn-xl text-uppercase" href="#services">Vamos!!</a>
+            </div>
+        </header>
+        <!-- Services-->
+        <section class="page-section" id="services">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">Servicios</h2>
+                    <h3 class="section-subheading text-muted">Te ayudaremos a encontrar tu auto proyecto ideal, desde el auto base hasta el motor que más prefieras basándonos en la actividad que quieres realizar con el auto.</h3>
+                </div>
+                <div class="row text-center">
+                    <div class="col-md-4">
+                        <a class="navbar-brand" px="2x2"><img src="{% static 'AppCoder/assets/img/jdmlogomodels.png' %}" class="imgRedonda" alt="..." /></a>
+                        <h4 class="my-3">El modelo base</h4>
+                        <p class="text-muted">Desde Honda hasta Lexus, podrás elegir autos de las mejores marcas japonesas donde encontrarás un modelo que te encante y funcione para comenzar tu proyecto.</p>
+                    </div>
+                    <div class="col-md-4">
+                        <a class="navbar-brand" px="2x2"><img src="{% static 'AppCoder/assets/img/jdmlogomotors.png' %}" class="imgRedonda" alt="..." /></a>
+                        <h4 class="my-3">El motor ideal</h4>
+                        <p class="text-muted">Te mostraremos los mejores motores JDM jamás creados, para que puedas decidir el swap mas adecuado.</p>
+                    </div>
+                    <div class="col-md-4">
+                        <a class="navbar-brand" px="2x2"><img src="{% static 'AppCoder/assets/img/jdmlogoproy.png' %}" class="imgRedonda" alt="..." /></a>
+                        <h4 class="my-3">La actividad deseada</h4>
+                        <p class="text-muted">Basándonos en tu auto elegido veremos que actividad podrás realizar con él sin necesidad de cambiar totalmente el sistema de tracción, para pensar en cada parte de tu proyecto antes de comenzarlo.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Portfolio Grid-->
+        <section class="page-section bg-light" id="portfolio">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">Comencemos!</h2>
+                    <h3 class="section-subheading text-muted">Debajo podrás ingresar a un catálogo de modelos, motores y actividades.</h3>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 col-sm-6 mb-4">
+                        <!-- Portfolio item 1-->
+                        <div class="portfolio-item">
+                            <a class="portfolio-link" data-bs-toggle="modal" href="#modeloslink">
+                                <div class="portfolio-hover">
+                                    <div class="portfolio-hover-content"><i class="fas fa-car fa-3x"></i></div>
+                                </div>
+                                <img class="img-fluid" src="{% static 'AppCoder/assets/img/portfolio/modeloport.jpg' %}" alt="..." />
+                            </a>
+                            <div class="portfolio-caption">
+                                <div class="portfolio-caption-heading">Modelos</div>
+                                <div class="portfolio-caption-subheading text-muted">Marcas-Modelos-Precios.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 mb-4 mb-sm-0">
+                        <!-- Portfolio item 2-->
+                        <div class="portfolio-item">
+                            <a class="portfolio-link" data-bs-toggle="modal" href="#motoreslink">
+                                <div class="portfolio-hover">
+                                    <div class="portfolio-hover-content"><i class="fas fa-oil-can fa-3x"></i></div>
+                                </div>
+                                <img class="img-fluid" src="{% static 'AppCoder/assets/img/portfolio/motorport.jpg' %}" alt="..." />
+                            </a>
+                            <div class="portfolio-caption">
+                                <div class="portfolio-caption-heading">Motores</div>
+                                <div class="portfolio-caption-subheading text-muted">Cilindradas-Hp-Precios.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6">
+                        <!-- Portfolio item 3-->
+                        <div class="portfolio-item">
+                            <a class="portfolio-link" data-bs-toggle="modal" href="#actividadlink">
+                                <div class="portfolio-hover">
+                                    <div class="portfolio-hover-content"><i class="fas fa-gauge-high fa-3x"></i></div>
+                                </div>
+                                <img class="img-fluid" src="{% static 'AppCoder/assets/img/portfolio/actividadport.jpg' %}" alt="..." />
+                            </a>
+                            <div class="portfolio-caption">
+                                <div class="portfolio-caption-heading">Actividades</div>
+                                <div class="portfolio-caption-subheading text-muted">Drift-Drag-Exposiciones.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Footer-->
+        <footer class="footer py-4">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-4 text-lg-start">Copyright &copy; JDM PROJECTS 2022</div>
+                    <div class="col-lg-8 text-lg-end">
+                        <a class="link-dark text-decoration-none" href="{% url 'Terms' %}">Términos de uso</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Portfolio Modals-->
+        <!-- Portfolio item 1 modal popup-->
+        <div class="portfolio-modal modal fade" id="modeloslink" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="close-modal" data-bs-dismiss="modal"><img src="{% static 'AppCoder/assets/img/close-icon.svg' %}" alt="Close modal" /></div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="modal-body">
+                                    <!-- Project details-->
+                                    <h2 class="text-uppercase">Modelos JDM</h2>
+                                    <p class="item-intro text-muted"></p>
+                                    <img class="img-fluid d-block mx-auto" src="{% static 'AppCoder/assets/img/portfolio/modelosmodal.jpg' %}" alt="..." />
+                                    <p>Modelos como la Honda NSX, Mitsubishi Evo y Nissan Silvia podrás encontrar en esta página, estos son populares entre los aficionados al automovilismo debido a sus características de rendimiento y aspecto. El Honda NSX es un superdeportivo de alto rendimiento con un motor V6 híbrido y un chasis de aluminio. El Mitsubishi Evo, también conocido como Lancer Evolution, es un coche de rally con tracción a las cuatro ruedas y un motor turboalimentado. El Nissan Silvia es un coche deportivo con tracción trasera y un motor de cuatro cilindros. Estos modelos son apreciados por su manejo ágil y sus prestaciones en carretera y en circuito.</p>
+                                    <a class="btn btn-primary btn-xl text-uppercase" href="{% url 'Modelos' %}">Vamos!!</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>       
+        <!-- Portfolio item 2 modal popup-->
+        <div class="portfolio-modal modal fade" id="motoreslink" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="close-modal" data-bs-dismiss="modal"><img src="{% static 'AppCoder/assets/img/close-icon.svg' %}" alt="Close modal" /></div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="modal-body">
+                                    <!-- Project details-->
+                                    <h2 class="text-uppercase">Motores JDM</h2>
+                                    <p class="item-intro text-muted"></p>
+                                    <img class="img-fluid d-block mx-auto" src="{% static 'AppCoder/assets/img/portfolio/motormodal.jpg' %}" alt="..." />
+                                    <p>Motores como el K20C1 VTEC, RB26DETT o el 2JZ-GTE son altamente demandados en el mundo automóvil debido a sus prestaciones y fiabilidad. El K20C1 VTEC es un motor de cuatro cilindros en línea producido por Honda que se utiliza en algunos de sus modelos de coches deportivos, como el Civic Type R. Es conocido por su alta potencia y torque, así como por su gran eficiencia energetica. El RB26DETT es un motor de seis cilindros en línea producido por Nissan para su modelo de coche deportivo GT-R. Es famoso por su gran potencia y durabilidad, ha sido utilizado en muchas competiciones de carreras y se ha convertido en una leyenda al salir victorioso de muchas de ellas. El 2JZ-GTE es un motor de seis cilindros en línea producido por Toyota para algunos de sus modelos de coches deportivos, como el Supra. Es conocido por su gran potencia y durabilidad, personas han logrado sacarle más de 2000hp a este motor, convirtiéndose así en uno de los motores más legendarios y buscados de todo el mundo.</p>
+                                    <a class="btn btn-primary btn-xl text-uppercase" href="{% url 'Motores' %}">Vamos!!</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Portfolio item 3 modal popup-->
+        <div class="portfolio-modal modal fade" id="actividadlink" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="close-modal" data-bs-dismiss="modal"><img src="{% static 'AppCoder/assets/img/close-icon.svg' %}" alt="Close modal" /></div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="modal-body">
+                                    <!-- Project details-->
+                                    <h2 class="text-uppercase">Actividades JDM</h2>
+                                    <p class="item-intro text-muted"></p>
+                                    <img class="img-fluid d-block mx-auto" src="{% static 'AppCoder/assets/img/portfolio/actividadmodal.jpg' %}" alt="..." />
+                                    <p>El drift, el drag y las exhibiciones son actividades populares en Japón debido a la gran afición que existe en ese país por el automovilismo y el tuning de coches. En Japón, el drift es un estilo de conducción en el que se intenta hacer que el coche derrape de manera controlada, mientras que el drag es una competición en la que se enfrentan dos coches en una carrera de aceleración a corta distancia. Las exhibiciones son eventos en los que se muestran coches modificados y se realizan demostraciones de drift y drag. Estas actividades son muy populares en Japón debido a la pasión que tienen los japoneses por el automovilismo y el tuning de coches.</p>
+                                    <a class="btn btn-primary btn-xl text-uppercase" href="{% url 'Actividades' %}">Vamos!!</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="{% static 'AppCoder/js/scripts.js' %}"></script>
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <!-- * *                               SB Forms JS                               * *-->
+        <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+    </body>
+</html>
