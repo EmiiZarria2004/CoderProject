@@ -352,6 +352,40 @@ video{
     float: right;
 }
 
+.imgsCatalogo{
+  display: auto;
+}
+
+.imgCatalogo{
+  margin-right: 62px;
+  margin-left: 52px;
+  margin-bottom: 17px;
+  margin-top: 22px;
+  max-width: 100%;
+  max-height: 300px;
+  height:auto;
+  border: 2px solid #000;
+  border-radius:20px;  
+  padding: 0px;
+}
+
+.imgCatalogo:hover{
+  box-shadow: 0 0 6px 6px rgba(92, 92, 91, 0.3); 
+}
+
+.greytext{
+  background-color: rgba(228, 222, 222, 0.5);
+}
+
+.greytext2{
+  background-color: rgba(156, 155, 155, 0.5);
+}
+
+.blacktext{
+  color: rgba(0, 0, 0, 1);
+  background-color: rgba(0, 0, 0, 1);
+}
+
 table {
   caption-side: bottom;
   border-collapse: collapse;
