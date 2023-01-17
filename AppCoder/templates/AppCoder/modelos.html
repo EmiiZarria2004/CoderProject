@@ -57,32 +57,30 @@
 
                  </form>
                  <br>
+                        <div class="containercatalogo">
                  {% for modelo in vermodelos %}
+                            <div class="imgsCatalogo">
+                                {% if modelo.imagenfront  %}
+                                <img class="imgCatalogo" src="{{modelo.imagenfront.url}}" alt="No hay imagen frontal del modelo">
+                                {% endif %}
 
-                 {% if modelo.imagenfront  %}
-                 <br>
-                 <img src="{{modelo.imagenfront.url}}" alt="No hay imagen frontal del modelo" height="300px">
-                 <br>
-                 <br>
-                 {% endif %}
-                 {% if modelo.imagenback  %}
-                 <br>
-                 <img src="{{modelo.imagenback.url}}" alt="No hay imagen trasera del modelo" height="300px">
-                 <br>
-                 <br>
-                 {% endif %}
-                 <p> Marca: {{modelo.nmb_marca}} </p>
-                 <p> Modelo: {{modelo.nmb_mod}} </p>
-                 <p> Versión: {{modelo.id_mod}} </p>
-                 <p> Característica especial: {{modelo.car_esp}} </p>
-                 <p> Fecha de producción: {{modelo.fecha_prod}} </p>
-                 <p> Motor de fábrica: {{modelo.default_motor}} </p>
-                 <p> Transmisión: {{modelo.transm}} </p>
-                 <p> Precio promedio: {{modelo.precio_prom}} </p>
-
-                 ##############################################################################################
-
+                                {% if modelo.imagenback  %}
+                                <img class="imgCatalogo" src="{{modelo.imagenback.url}}" alt="No hay imagen trasera del modelo" height="300px">
+                                {% endif %}
+                            </div>
+                            <br>
+                            <p class="greytext"> Marca: {{modelo.nmb_marca}} </p>
+                            <p class="greytext2"> Modelo: {{modelo.nmb_mod}} </p>
+                            <p class="greytext"> Versión: {{modelo.id_mod}} </p>
+                            <p class="greytext2"> Característica especial: {{modelo.car_esp}} </p>
+                            <p class="greytext"> Fecha de producción: {{modelo.fecha_prod}} </p>
+                            <p class="greytext2"> Motor de fábrica: {{modelo.default_motor}} </p>
+                            <p class="greytext"> Transmisión: {{modelo.transm}} </p>
+                            <p class="greytext2"> Precio promedio: {{modelo.precio_prom}} </p>
+                            <br>
+                            <p class="blacktext">.</p>
                  {% endfor %}
+                        </div>           
              </div>
          </section>
 </html>
