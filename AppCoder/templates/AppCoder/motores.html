@@ -57,23 +57,23 @@
 
                  </form>
                  <br>
-                 {% for motor in vermotores %}
-
-                 {% if motor.imagen  %}
-                 <br>
-                 <img src="{{motor.imagen.url}}" alt="No hay imagen del motor" height="300px">
-                 <br>
-                 <br>
-                 {% endif %}
-                 <p> Nombre: {{motor.nmb_motor}} </p>
-                 <p> Imagen: {{motor.imagen}} </p>
-                 <p> Hp de fábrica: {{motor.hp_default}} </p>
-                 <p> Cilindrada: {{motor.cil}} </p>
-                 <p> Hp máximos sin reforjar: {{motor.hp_max}} </p>
-                 <p> Precio promedio: {{motor.precio_prom}} </p>
-
-                 ##############################################################################################
-
-                 {% endfor %}
+                 <div class="containercatalogo">
+                    {% for motor in vermotores %}
+                    
+                    <div class="imgsCatalogo">
+                        {% if motor.imagen  %}
+                        <img class="imgCatalogo" src="{{motor.imagen.url}}" alt="No hay imagen del motor">
+                        {% endif %}
+                    </div>    
+                    <br>
+                    <p class="greytext"> Nombre: {{motor.nmb_motor}} </p>
+                    <p class="greytext2"> Hp de fábrica: {{motor.hp_default}} </p>
+                    <p class="greytext"> Cilindrada: {{motor.cil}} </p>
+                    <p class="greytext2"> Hp máximos sin reforjar: {{motor.hp_max}} </p>
+                    <p class="greytext"> Precio promedio: {{motor.precio_prom}} </p>
+                    <br>
+                    <p class="blacktext">.</p>
+                    {% endfor %}
+                 </div> 
              </div>
          </section>
